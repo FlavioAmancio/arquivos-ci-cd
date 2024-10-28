@@ -1,0 +1,16 @@
+networks:
+  sonarqube:
+    external: false
+
+services:
+  nexus:
+    user: root
+    image: sonatype/nexus3
+    volumes:
+      - ./nexus:/nexus-data
+    ports:
+      - "8081:8081"
+      - "8082:8082"
+      - "8083:8083"
+    networks:
+      - sonarqube

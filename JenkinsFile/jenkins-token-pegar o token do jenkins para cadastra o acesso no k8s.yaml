@@ -1,0 +1,3 @@
+    - name: Extraindo o token criado para o Jenkins
+      shell: kubectl get secret jenkins-sa-token -o jsonpath={.data.token} -n jenkins-runner | base64 -d
+      register: token
